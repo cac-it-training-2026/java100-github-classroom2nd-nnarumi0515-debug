@@ -111,4 +111,4 @@ public class Patisserie {
 		System.out.println("ピスターシュ　\\" + (int) (320 * pistabuy) + "・・・" + (int) ((320 * pistabuy) / sum2 * 100) + "%");
 	}
 
-}//
+}///
