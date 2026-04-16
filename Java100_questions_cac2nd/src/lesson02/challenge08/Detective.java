@@ -47,7 +47,9 @@
 
 package lesson02.challenge08;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Detective {
 
@@ -69,9 +71,32 @@ public class Detective {
 		System.out.print("数字を選んでここに入力＞");
 
 		//ここに入力処理を入れる
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String answer = reader.readLine();
+		int answer2 = Integer.parseInt(answer);
 
 		//ここにswitch文を入れる
+		switch (answer2) {
+		case 1://変数answer2が1（パターンA）の場合
+			System.out.println("探偵：");
+			System.out.println("やっぱりその経路が一番可能性高いね");
+			break;
 
+		case 2://変数answer2が2（パターンB）の場合
+			System.out.println("探偵：");
+			System.out.println("その可能性は低いかな。");
+			break;
+
+		case 3://変数answer2が3（パターンC）の場合
+			System.out.println("探偵：");
+			System.out.println("犬がよく知っている人物ならあり得るね。");
+			break;
+
+		default://上記以外の場合
+			System.out.println("探偵：");
+			System.out.println("他に道はありませんよ。");
+
+		}
 	}
 
 }

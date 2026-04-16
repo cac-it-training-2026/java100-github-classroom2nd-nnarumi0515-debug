@@ -32,7 +32,7 @@ public class Detective {
 		System.out.println("ちょっと待ってください！ガソリンが...\n");
 		//ここにif文を記述する。
 		//変数gasolinが10以上であるときにガソリンが足りているものとします。
-		if (gasolin >= 10) {
+		if (gasolin >= 10) {//ガソリン10以上の時
 			System.out.println("あ、やっぱり足りてました");
 
 		}

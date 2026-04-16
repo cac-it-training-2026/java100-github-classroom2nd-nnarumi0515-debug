@@ -22,7 +22,7 @@ public class Detective {
 
 	public static void main(String[] args) {
 
-		boolean request = true;
+		boolean request = true;//trueで表示される
 
 		if (request) {
 			System.out.println("依頼主：");

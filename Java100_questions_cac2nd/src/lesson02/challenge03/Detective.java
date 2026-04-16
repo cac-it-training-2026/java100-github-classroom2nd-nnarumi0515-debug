@@ -28,7 +28,7 @@ public class Detective {
 		System.out.println("宝石が見つかりましたら");
 		System.out.println(budget + "円をお支払いします。\n");
 
-		if (budget > 500) {
+		if (budget > 500) {//依頼料500円超えているとき
 			System.out.println("探偵：");
 			System.out.println("喜んでお引き受けします。");
 		}
