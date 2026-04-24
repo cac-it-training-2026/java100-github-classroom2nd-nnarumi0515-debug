@@ -32,16 +32,32 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに配列の宣言を記述する
-
+		int[] ABArray = new int[5];//整数型の配列ABArrayを宣言（要素数５）
 
 		int intputNum = 0;
-		boolean loopFlag = false;
-
+		boolean loopFlag = false;//重複なし
 
 		//ここに重複チェックおよび値の代入処理を記述する
+		for (int i = 0; i < ABArray.length; i++) {//5回繰り返しして1～5までの整数を重複しないようにランダムで代入する
+			do {
+				loopFlag = false;//重複なし
+				intputNum = (int) (Math.random() * 10) % 5 + 1;//1-5のランダムな数字生成
 
+				for (int j = 0; j < ABArray.length; j++) {
+					if (ABArray[j] == intputNum) {//もし生成した数値が配列と
+						loopFlag = true;//重複が見つかった場合再生成
+						break;//処理中断whileの判定
+
+					}
+
+				}
+
+			} while (loopFlag);//重複がある限り繰り返す
+
+			ABArray[i] = intputNum;//重複していない値を格納
+
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
@@ -49,9 +65,15 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 		System.out.println("はい、");
 
-
 		//ここに要素の確認および何袋目かの出力処理を記述する
+		for (int i = 0; i < ABArray.length; i++) {//配列の先頭から5があるか確認する
+			if (ABArray[i] == 5) {//配列の要素が５の時
+				System.out.println((i + 1) + "袋目");//出力
+				break;//繰り返し終了、出力処理
 
+			}
+
+		}
 
 		System.out.println("に入っていました。");
 
