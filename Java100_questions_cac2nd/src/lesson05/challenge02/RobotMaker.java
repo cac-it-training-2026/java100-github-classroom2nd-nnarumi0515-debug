@@ -69,10 +69,24 @@ public class RobotMaker {
 		//（インスタンス名はrobot1、robot2、robot3）
 		//それぞれ名前を代入する処理を記述する。
 
+		Robot robot1 = new Robot();//インスタンス生成
+		//フィールドに値を代入
+		robot1.energy = 10;//インスタンスrobot1のenergyに10代入/
+		robot1.name = "RF1";//インスタンスrobot1のnameにRF1を代入
+
+		Robot robot2 = new Robot();
+		robot2.energy = 20;
+		robot2.name = "RF2";
+
+		Robot robot3 = new Robot();
+		robot3.energy = 30;
+		robot3.name = "RF3";
+
 		System.out.println("G博士：");
 		System.out.println("よし、では確認にため2番目のロボットの中を覗いてみよう。\n");
 
 		//ここに2番目のインスタンスの名前を表示する処理を記述する
+		System.out.println(robot2.name + "\n");//フィールドの値を出力
 
 		System.out.println("G博士：");
 		System.out.println("OKじゃ。\n");
