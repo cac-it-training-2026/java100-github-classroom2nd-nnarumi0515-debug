@@ -48,39 +48,71 @@ import java.io.InputStreamReader;
 //メソッド名：makeOmelet(引数int eggNum ,int butterNum、戻り値void、
 //入力されて材料の個数に併せてオムレツの個数を表示する)
 
+class Robot {//①クラスの宣言
+	int energy;//フィールド
+	String name;//フィールド追加
+	int water;//フィールド追加
+
+	void pumpWater() {
+		System.out.println("\n水を" + water + "リットルだしました。\n");
+	}
+
+	//フィールドの値が外から変更されるのでsetterメソッド
+	void setWater(int water) {
+		this.water = water;//this.waterこのクラス内のwaterを指す、waterは渡された値
+
+	}
+
+	void makeOmelet(int eggNum, int butterNum) {
+		int omeNum1 = eggNum / 2;
+		int omeNum2 = butterNum / 5;
+		if (omeNum1 > omeNum2) {
+			System.out.println(omeNum2 + "人分のオムレツを作成しました。\n");
+
+		} else {
+			System.out.println(omeNum1 + "人分のオムレツを作成しました。\n");
+
+		}
+	}
+
+}
+
 public class RobotMaker {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("G博士：");
-        System.out.println("いよいよ第2段階に突入じゃ。調理が出来るようにするぞ！\n");
-        System.out.println("Rさん：");
-        System.out.println("実質第1段階ですね。\n");
-        System.out.println("G博士：");
-        System.out.println("まずはオムレツを作る機能を実装してみた。\n");
-        System.out.println("Rさん：");
-        System.out.println("いいですね。僕オムレツ大好きです。\n");
-        System.out.println("G博士：");
-        System.out.println("卵2個、バター5gで1人前を作る。材料を増やすとその人数分作ってくれるぞ。\n");
+		System.out.println("G博士：");
+		System.out.println("いよいよ第2段階に突入じゃ。調理が出来るようにするぞ！\n");
+		System.out.println("Rさん：");
+		System.out.println("実質第1段階ですね。\n");
+		System.out.println("G博士：");
+		System.out.println("まずはオムレツを作る機能を実装してみた。\n");
+		System.out.println("Rさん：");
+		System.out.println("いいですね。僕オムレツ大好きです。\n");
+		System.out.println("G博士：");
+		System.out.println("卵2個、バター5gで1人前を作る。材料を増やすとその人数分作ってくれるぞ。\n");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("卵の個数を入力してください＞");
-        String eggNumStr = br.readLine();
-        int eggNum = Integer.parseInt(eggNumStr);
+		System.out.print("卵の個数を入力してください＞");
+		String eggNumStr = br.readLine();
+		int eggNum = Integer.parseInt(eggNumStr);
 
-        System.out.print("\nバターの量を入力してください（グラム）＞");
-        String butterNumStr = br.readLine();
-        int butterNum = Integer.parseInt(butterNumStr);
+		System.out.print("\nバターの量を入力してください（グラム）＞");
+		String butterNumStr = br.readLine();
+		int butterNum = Integer.parseInt(butterNumStr);
 
-        //ここでRobotクラスのインスタンスを作り、
-        //（インスタンス名はrobot）
-        //makeOmeletを実行する。
+		//ここでRobotクラスのインスタンスを作り、
+		//（インスタンス名はrobot）
+		//makeOmeletを実行する。
+		Robot robot = new Robot();//インスタンス生成
+		robot.makeOmelet(eggNum, butterNum);
+		;//
 
-        System.out.println("Rさん：");
-        System.out.println("わー、博士すごいですね！味もなかなか。\n");
-        System.out.println("G博士：");
-        System.out.println("じゃろ。死んだ婆さんの秘伝のレシピを入れておいたからの。\n");
-    }
+		System.out.println("Rさん：");
+		System.out.println("わー、博士すごいですね！味もなかなか。\n");
+		System.out.println("G博士：");
+		System.out.println("じゃろ。死んだ婆さんの秘伝のレシピを入れておいたからの。\n");
+	}
 
 }

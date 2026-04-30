@@ -39,9 +39,30 @@ public class WarehouseManager {
 
 		int[] ABKosanArray = new int[5];
 
+		//ここに重複チェックおよび値の代入処理を記述する
+		int intputNum = 0;
+		boolean loopFlag = false;//重複なし
 
 		//ここに重複チェックおよび値の代入処理を記述する
+		for (int i = 0; i < ABKosanArray.length; i++) {//5回繰り返しして1～5までの整数を重複しないようにランダムで代入する
+			do {
+				loopFlag = false;//重複なし
+				intputNum = (int) (Math.random() * 10) % 5 + 1;//1-5のランダムな数字生成
 
+				for (int j = 0; j < ABKosanArray.length; j++) {
+					if (ABKosanArray[j] == intputNum) {//もし生成した数値が配列と
+						loopFlag = true;//重複が見つかった場合再生成
+						break;//処理中断whileの判定
+
+					}
+
+				}
+
+			} while (loopFlag);//重複がある限り繰り返す
+
+			ABKosanArray[i] = intputNum;//重複していない値を格納
+
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の入れ替えをお願いします。\n");
@@ -57,9 +78,37 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに値の入れ替え処理を記述する
+		for (int i = 0; i < ABKosanArray.length; i++) {//iを配列の長さ繰り返す
+			if (ABKosanArray[i] == 1) {//要素番号iの要素が１のとき
+				for (int j = 0; j < ABKosanArray.length; j++) {//３を探す処理、j＝0から5まで繰り返し
+					if (ABKosanArray[j] == 3) {//要素番号jの要素が3の時
+						int temp = ABKosanArray[i];//整数型の仮の変数の箱を用意して１を入れる
+						ABKosanArray[i] = ABKosanArray[j];//要素番号iの所に3を代入
+						ABKosanArray[j] = temp;//要素番号ｊに仮の変数に入っていた1を代入し、入れ替え処理完了
+						break;//処理中断
 
+					}
+
+				}
+
+			}
+			//上記と同様に２と4入れ替え処理
+			if (ABKosanArray[i] == 2) {
+				for (int j = 0; j < ABKosanArray.length; j++) {
+					if (ABKosanArray[j] == 4) {
+						int temp = ABKosanArray[i];
+						ABKosanArray[i] = ABKosanArray[j];
+						ABKosanArray[j] = temp;
+						break;
+
+					}
+
+				}
+
+			}
+
+		}
 
 		System.out.println("入れ替え後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {

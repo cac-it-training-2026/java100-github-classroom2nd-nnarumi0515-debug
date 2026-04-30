@@ -42,9 +42,32 @@ public class WarehouseManager {
 
 		int[] ABKosanArray = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する
+		int inputNum = 0;//整数型のinputNumに0を代入する
+		boolean loopFlag = false;//重複なし
+		for (int i = 0; i < ABKosanArray.length; i++) {//5回繰り返しして1～5までの整数を重複しないようにランダムで代入する
+			do {
+				loopFlag = false;//重複なし
+				inputNum = (int) (Math.random() * 10) % 5 + 1;//1-5のランダムな数字生成
 
+				for (int j = 0; j < ABKosanArray.length; j++) {
+					if (ABKosanArray[j] == inputNum) {
+						loopFlag = true;//もし生成した数値が配列と重複が見つかった場合再生成
+						break;//処理中断whileの判定
+
+					}
+
+				}
+
+			} while (loopFlag);//重複がある限り繰り返す
+
+			ABKosanArray[i] = inputNum;//重複していない値を格納
+
+		}
+
+		for (int i = 0; i < ABKosanArray.length; i++) {
+
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の並べ替えをお願いします。\n");
@@ -61,9 +84,16 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに昇順にソートする処理を記述する
-
+		for (int i = 0; i < ABKosanArray.length - 1; i++) {//i=0から4回繰り返す
+			for (int j = i + 1; j < ABKosanArray.length; j++) {//j=1からｊ＜５まで繰り返す
+				if (ABKosanArray[i] > ABKosanArray[j]) {//もしiの要素がjの要素よりも大きいとき
+					int temp = ABKosanArray[i];//iの要素を整数型のtempに代入する
+					ABKosanArray[i] = ABKosanArray[j];//iの要素にjの要素を代入する
+					ABKosanArray[j] = temp;//jの要素にtempに代入していたiの要素入れる
+				}
+			}
+		}
 
 		System.out.println("小さい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
@@ -74,9 +104,16 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに降順にソートする処理を記述する
-
+		for (int i = 0; i < ABKosanArray.length - 1; i++) {//iを0から4まで5回繰り返す
+			for (int j = i + 1; j < ABKosanArray.length; j++) {//ｊを1から４まで4回繰り返す
+				if (ABKosanArray[i] < ABKosanArray[j]) {//添え字iの要素が添え字jの要素よりも小さいとき
+					int temp = ABKosanArray[i];//tempにiの要素代入する
+					ABKosanArray[i] = ABKosanArray[j];//iのにjの値を代入する
+					ABKosanArray[j] = temp;//j
+				}
+			}
+		}
 
 		System.out.println("大きい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
