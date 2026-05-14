@@ -32,30 +32,95 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 //ここにOmegalianクラスを記述する
+class Omegalian {
+	private String item;
 
+	/**
+	 * @return item
+	 */
+	public String getItem() {
+		return item;
+	}
+
+	/**
+	 * @param item セットする item
+	 */
+	public void setItem(String item) {
+		int lastIndex = item.length() - 1;//整数型lastIndexに文字列型itemの長さ‐1代入
+		char lastch = item.charAt(lastIndex);//charAt(lastIndex)で文字列型itemの最後の文字取り出して代入
+		String changeStr = changeLastChar(lastch);//changeLastChar(lastch)呼び出して文字列changeStrに代入
+
+		if (changeStr != null) {//changeStrがnullでないとき（変換する文字がある時）
+			StringBuffer sb = new StringBuffer(item);
+			sb.replace(lastIndex, lastIndex + 1, changeStr);//replace(開始位置, 終了位置, 置換文字列)
+			this.item = new String(sb);//
+		} else {
+			this.item = item;
+		}
+
+	}
+
+	private String changeLastChar(char ch) {
+		String changeStr = null;
+		switch (ch) {//switch文挿入
+		case '0'://0のとき
+			changeStr = "zero";
+			break;//
+		case '1':
+			changeStr = "one";
+			break;
+		case '2':
+			changeStr = "two";
+			break;
+		case '3':
+			changeStr = "three";
+			break;
+		case '4':
+			changeStr = "four";
+			break;
+		case '5':
+			changeStr = "five";
+			break;
+		case '6':
+			changeStr = "six";
+			break;
+		case '7':
+			changeStr = "seven";
+			break;
+		case '8':
+			changeStr = "eight";
+			break;
+		case '9':
+			changeStr = "nine";
+			break;
+		default:
+			break;
+		}
+		return changeStr;
+	}
+
+}
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.print("Ω星人にアイテムを渡してください＞");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String present = br.readLine();
+		System.out.print("Ω星人にアイテムを渡してください＞");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String present = br.readLine();
 
+		//ここに適切な処理を記述する
+		Omegalian omegalian = new Omegalian();
+		omegalian.setItem(present);
 
-        //ここに適切な処理を記述する
+		String item = null;
 
+		//ここに適切な処理を記述する
+		item = omegalian.getItem();
 
-        String item = null;
-
-
-        //ここに適切な処理を記述する
-
-
-        System.out.println("\nΩ星人：");
-        System.out.println("えっ！" + item + "をくれるオメガか！");
-        System.out.println("ありがとうオメガ。");
-    }
+		System.out.println("\nΩ星人：");
+		System.out.println("えっ！" + item + "をくれるオメガか！");
+		System.out.println("ありがとうオメガ。");
+	}
 }
