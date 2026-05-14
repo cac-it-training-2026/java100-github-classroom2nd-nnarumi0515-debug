@@ -31,28 +31,68 @@ package lesson05.challenge07;
 //メソッド名：getWater(引数なし、戻り値int、
 //現在の水量(フィールドwaterの値)を戻り値として返す)
 
+class Robot {//①クラスの宣言
+	int energy;//フィールド
+	String name;//フィールド追加
+	int water;//フィールド追加
+
+	void pumpWater() {
+		System.out.println("\n水を" + water + "リットルだしました。\n");
+	}
+
+	void randomWater() {
+		water = (int) (Math.random() * 10) % 9 + 1;
+	}
+
+	//フィールドの値が外から変更されるのでsetterメソッド、フィールドの値を代入
+	void setWater(int water) {
+		this.water = water;//this.waterこのクラス内のwaterを指す、waterは渡された値
+
+	}
+
+	void makeOmelet(int eggNum, int butterNum) {
+		int omeNum1 = eggNum / 2;
+		int omeNum2 = butterNum / 5;
+		if (omeNum1 > omeNum2) {
+			System.out.println(omeNum2 + "人分のオムレツを作成しました。\n");
+
+		} else {
+			System.out.println(omeNum1 + "人分のオムレツを作成しました。\n");
+
+		}
+	}
+
+	int getWater() {//メソッドgetWater、引数なし設定、フィールドの値を取得する
+		return water;
+	}
+
+}
+
 public class RobotMaker {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        System.out.println("Rさん：");
-        System.out.println("でもこれランダムに水を入れた時にロボット内の水量がわかりませんね。\n");
-        System.out.println("G博士：");
-        System.out.println("そう言えばそうじゃな。よし、ちょっと待っとれ。\n");
-        System.out.println("G博士：");
-        System.out.println("......出来た！現在の水量を表示する機能じゃ。\n");
+		System.out.println("Rさん：");
+		System.out.println("でもこれランダムに水を入れた時にロボット内の水量がわかりませんね。\n");
+		System.out.println("G博士：");
+		System.out.println("そう言えばそうじゃな。よし、ちょっと待っとれ。\n");
+		System.out.println("G博士：");
+		System.out.println("......出来た！現在の水量を表示する機能じゃ。\n");
 
-        int water = 0;
+		int water = 0;
 
-        //ここでRobotクラスのインスタンスを作り、
-        //（インスタンス名はrobot）
-        //randomWaterを実行する。
-        //getWaterを実行する。
+		//ここでRobotクラスのインスタンスを作り、
+		//（インスタンス名はrobot）
+		//randomWaterを実行する。
+		//getWaterを実行する。
+		Robot robot = new Robot();//インスタンス生成
+		robot.randomWater();//randomWater()実行
+		water = robot.getWater();//getWater()
 
-        System.out.println("「ガ～ピィーガ～、ゲンザイノスイリョウハ" + water + "リットルデス。」\n");
+		System.out.println("「ガ～ピィーガ～、ゲンザイノスイリョウハ" + water + "リットルデス。」\n");
 
-        System.out.println("Rさん：");
-        System.out.println("なんか雑音が気になりますが、一応出来てますね。\n");
-    }
+		System.out.println("Rさん：");
+		System.out.println("なんか雑音が気になりますが、一応出来てますね。\n");
+	}
 
 }

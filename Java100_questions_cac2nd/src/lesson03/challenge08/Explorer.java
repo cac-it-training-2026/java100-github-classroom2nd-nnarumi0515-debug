@@ -59,15 +59,29 @@ public class Explorer {
 		int lithograph = 0;
 		int i = 0;
 
-
 		//ここにdo～while文、if文を利用した処理を記述
+		do {
+			lithograph = (int) (Math.random() * 10 % 10);//int型にキャスト（0～9）までの数字lithographに代入
+			if (lithograph == 3) {//lithographが３の時
+				System.out.println("隊長：");
+				System.out.println("やったー！３が出たよ！\n");
+				break;//繰り返しを抜けて次のif文
 
+			} else if (i != 6) {//iが６でないとき
+				System.out.println("隊長：");
+				System.out.println(lithograph + "だった．．．");
+				System.out.println("１時間待つよ" + "(" + i + "時間経過）");
 
-		if (lithograph == 3) {
+			}
+			i++;//iに1加算
+
+		} while (i <= 6);//iが6以下になるまで繰り返す
+
+		if (lithograph == 3) {//lithographが３の時
 			System.out.println("洞窟の入り口が開きました。");
 		} else {
 			System.out.println("隊長：");
-			System.out.println(lithograph + "だった...（" + (i - 1)+ "時間経過）");
+			System.out.println(lithograph + "だった...（" + (i - 1) + "時間経過）");
 			System.out.println("あの時サバ缶に手を付けていなければ...");
 			System.out.println("探検隊は全滅しました。");
 		}

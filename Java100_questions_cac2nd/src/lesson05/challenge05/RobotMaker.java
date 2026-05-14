@@ -37,29 +37,51 @@ import java.io.InputStreamReader;
 //メソッド名：setWater(引数int water、戻り値void、フィールドwaterに引数の値を代入する)
 //メソッドpumpWaterを改修し、randomWater()を削除
 
+class Robot {//①クラスの宣言
+	int energy;//フィールド
+	String name;//フィールド追加
+	int water;//フィールド追加
+
+	void pumpWater() {
+		System.out.println("\n水を" + water + "リットルだしました。\n");
+	}
+
+	//フィールドの値が外から変更されるのでsetterメソッド
+	void setWater(int water) {
+		this.water = water;//this.waterこのクラス内のwaterを指す、waterは渡された値
+
+	}
+
+}
+
 public class RobotMaker {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("Rさん：");
-        System.out.println("でもランダムだと必要な量だけ出せないですね。\n");
-        System.out.println("G博士：");
-        System.out.println("そう言うと思って水量調節機能を実装してみたぞ。\n");
-        System.out.println("Rさん：");
-        System.out.println("どうやって使うんですか？\n");
-        System.out.println("G博士：");
-        System.out.println("簡単じゃ。必要な水量をリットル単位で入力すればいいんじゃ。\n");
+		System.out.println("Rさん：");
+		System.out.println("でもランダムだと必要な量だけ出せないですね。\n");
+		System.out.println("G博士：");
+		System.out.println("そう言うと思って水量調節機能を実装してみたぞ。\n");
+		System.out.println("Rさん：");
+		System.out.println("どうやって使うんですか？\n");
+		System.out.println("G博士：");
+		System.out.println("簡単じゃ。必要な水量をリットル単位で入力すればいいんじゃ。\n");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("出したい水の量を入力してください＞");
-        String waterStr = br.readLine();
-        int water = Integer.parseInt(waterStr);
+		System.out.print("出したい水の量を入力してください＞");
+		String waterStr = br.readLine();
+		int water = Integer.parseInt(waterStr);
 
-        //ここでRobotクラスのインスタンスを作り、
-        //（インスタンス名はrobot）
-        //setWaterを実行する。
-        //pumpWaterを実行する。
-    }
+		//ここでRobotクラスのインスタンスを作り、
+		//（インスタンス名はrobot）
+		//setWaterを実行する。
+		//pumpWaterを実行する。
+
+		Robot robot = new Robot();//インスタンス生成
+		robot.setWater(water);//入力された値をsetWaterに返す
+		robot.pumpWater();//pumpWater実行
+
+	}
 
 }

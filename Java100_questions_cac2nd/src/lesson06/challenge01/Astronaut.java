@@ -19,17 +19,17 @@
 package lesson06.challenge01;
 
 class Spaceship {
-    int air;
+	private int air;//private修飾子で他のクラスからアクセスできないようになっている
 }
 
 public class Astronaut {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        Spaceship spaceship = new Spaceship();
+		Spaceship spaceship = new Spaceship();//オブジェクト生成
 
-        spaceship.air = -10;
+		//spaceship.air = -10;
 
-    }
+	}
 
 }
